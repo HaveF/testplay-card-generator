@@ -38,7 +38,7 @@ class TestCardGeneratorEngine:
     def load(ymlpath, is_quiet=False, dryrun=False, encoding='utf8'):
         ''' engine instance factory method '''
         with codecs.open(ymlpath, 'r', encoding=encoding) as fh:
-            layout = yaml.load(fh)
+            layout = yaml.load(fh, Loader=yaml.FullLoader)
         return TestCardGeneratorEngine(
             layout=layout, is_quiet=is_quiet, dryrun=dryrun)
 
